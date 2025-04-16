@@ -12,6 +12,11 @@ export interface DiaryEntry {
     comment: string,
 }
 
+//Interfaz creada a partir de DiaryEntries (lo que hace es que excluye el dato comment)
+//export type NoSensitiveInfoDiaryEntry = Pick<DiaryEntry, "id" | "date" | "weather" | "visibility">
+
+//Hay otra forma de hacer lo de arriba es la siguiente
+export type NoSensitiveInfoDiaryEntry = Omit<DiaryEntry, 'comment'>
 
 
 
