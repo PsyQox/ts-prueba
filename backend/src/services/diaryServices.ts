@@ -13,7 +13,17 @@ const diaries: DiaryEntry[] = diaryData as DiaryEntry[]
 
 export const getEntries = (): DiaryEntry[] => diaries
 
+//Esto nos puede obligar siempre a controlar el que nos pueda devolver un undefined
+export const findById = (id:number): DiaryEntry | undefined =>{
+    const entry = diaries.find(d => d.id == id)
+    return entry
+}
+
 //Imaginemos que queremos tener otra pero sin el comentario
-export const getEntriesWithoutSensitiveInfo = (): NoSensitiveInfoDiaryEntry[] => diaries
+export const getEntriesWithoutSensitiveInfo = (): NoSensitiveInfoDiaryEntry[] => {
+    return diaries.map(({id, date, weather, visibility}) => {
+        return {id, date, weather, visibility}
+    })
+}
 
 export const addEntry = ():null => null

@@ -5,11 +5,11 @@ export type Visibility = 'great' | 'good' | 'ok' | 'poor'
 
 //Un interface es mas como un contrato que deberia tener un objeto
 export interface DiaryEntry {
-    id: number,
-    date: string,
-    weather: Weather,
-    visibility: Visibility,
-    comment: string,
+    id: number
+    date: string
+    weather: Weather
+    visibility: Visibility
+    comment: string
 }
 
 //Interfaz creada a partir de DiaryEntries (lo que hace es que excluye el dato comment)
