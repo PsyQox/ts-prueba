@@ -6,3 +6,4 @@
 * npm install ts-node-dev -D
 * "dev": "ts-node-dev src/index.ts" //En los scrips
 * "start": "node build/index.js", //En los scrips
+* Optional, npm install ts-standard -D
