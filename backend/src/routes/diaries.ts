@@ -21,8 +21,19 @@ router.get('/:id', (req: Request, res: Response) =>{
     return;
 })
 
-router.post('/', (_req, res)=>{
-    res.send("Save the diary")
+router.post('/', (req, res)=>{
+    try {
+        const  newDiaryEntry = toNewDiaryEntry(req.body)
+
+        const addedDiaryEntry = diaryServices.addDiary(newDiaryEntry)
+
+        res.json(addedDiaryEntry)
+
+    } catch (error:any) {
+        res.status(400).send(error.message)
+    }
+    
+
 })
 
 export default router

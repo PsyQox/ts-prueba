@@ -1,4 +1,4 @@
-import { DiaryEntry,NoSensitiveInfoDiaryEntry } from '../types'
+import { DiaryEntry,NewDiaryEntry,NoSensitiveInfoDiaryEntry } from '../types'
 // import diaryEntries from './diaries'
 import diaryData from './diaries.json' //Tienes que poner en true el resolveJsonModule
 //Cuando importas algo tiene una prioridad de busqueda: ".tsx, .ts, .node, .js, .json"
@@ -14,9 +14,13 @@ const diaries: DiaryEntry[] = diaryData as DiaryEntry[]
 export const getEntries = (): DiaryEntry[] => diaries
 
 //Esto nos puede obligar siempre a controlar el que nos pueda devolver un undefined
-export const findById = (id:number): DiaryEntry | undefined =>{
+export const findById = (id:number): NoSensitiveInfoDiaryEntry | undefined =>{
     const entry = diaries.find(d => d.id == id)
-    return entry
+    if (entry) {
+        const {comment, ...resOfDiary} = entry
+        return resOfDiary
+    }
+    return undefined
 }
 
 //Imaginemos que queremos tener otra pero sin el comentario
@@ -26,4 +30,12 @@ export const getEntriesWithoutSensitiveInfo = (): NoSensitiveInfoDiaryEntry[] =>
     })
 }
 
-export const addEntry = ():null => null
+export const addDiary = (newDiaryEntry: NewDiaryEntry):DiaryEntry => {
+    const newDiary = {
+        id: Math.max(...diaries.map(d => d.id)) + 1,
+        ...newDiaryEntry
+    }
+    diaries.push(newDiary)
+    return newDiary
+    
+}

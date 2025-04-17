@@ -1,7 +1,24 @@
 //Para tipar los objetos de nuestra aplicacion
 //Type es que estamos creando tipos al igual que existe el tipo number tipo string y boolean
-export type Weather = 'sunny' | 'rainy' | 'cloudy' | 'windy' | 'stormy'
-export type Visibility = 'great' | 'good' | 'ok' | 'poor'
+// export type Weather = 'sunny' | 'rainy' | 'cloudy' | 'windy' | 'stormy'
+// export type Visibility = 'great' | 'good' | 'ok' | 'poor'
+
+
+//Los enums no solamente los puedes utilizar en typescrip si no que te crea una constante que puedes utilizar en codigo como si fuese runtime, osea disponible en runtime
+export enum Weather {
+    Sunny = 'sunny',
+    Rainy = 'rainy',
+    Cloudy = 'cloudy',
+    Windy = 'windy',
+    Stormy = 'stormy'
+}
+
+export enum Visibility {
+    Great = 'great',
+    Good = 'good',
+    Ok = 'ok',
+    Poor = 'poor'
+}
 
 //Un interface es mas como un contrato que deberia tener un objeto
 export interface DiaryEntry {
@@ -18,7 +35,9 @@ export interface DiaryEntry {
 //Hay otra forma de hacer lo de arriba es la siguiente
 export type NoSensitiveInfoDiaryEntry = Omit<DiaryEntry, 'comment'>
 
+export type NewDiaryEntry = Omit<DiaryEntry, 'id'>
 
+//¡¡¡siempre intentar ver que se puede reutilizar!!!
 
 //Cuando utilizar types y cuando utilizar interface
 /*
