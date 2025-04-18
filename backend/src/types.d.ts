@@ -3,22 +3,10 @@
 // export type Weather = 'sunny' | 'rainy' | 'cloudy' | 'windy' | 'stormy'
 // export type Visibility = 'great' | 'good' | 'ok' | 'poor'
 
+import { Visibility, Weather } from "./enums"
 
-//Los enums no solamente los puedes utilizar en typescrip si no que te crea una constante que puedes utilizar en codigo como si fuese runtime, osea disponible en runtime
-export enum Weather {
-    Sunny = 'sunny',
-    Rainy = 'rainy',
-    Cloudy = 'cloudy',
-    Windy = 'windy',
-    Stormy = 'stormy'
-}
 
-export enum Visibility {
-    Great = 'great',
-    Good = 'good',
-    Ok = 'ok',
-    Poor = 'poor'
-}
+
 
 //Un interface es mas como un contrato que deberia tener un objeto
 export interface DiaryEntry {
